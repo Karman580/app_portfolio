@@ -39,6 +39,11 @@
   --color-accent-violet: #7C3AED;
   --color-accent-danger: #EF4444;
   --color-success: #10B981;
+  
+  --color-glass-bg: #FFFFFF;
+  --color-glass-border: rgba(15, 23, 42, 0.08);
+  --color-glass-hover-bg: rgba(255, 255, 255, 0.95);
+  --color-glass-hover-border: rgba(2, 132, 199, 0.3);
 
   background-color: var(--color-base);
   color: var(--color-text-primary);
@@ -63,6 +68,11 @@
   --color-accent-violet: #7C3AED;
   --color-accent-danger: #FF3366;
   --color-success: #00FFB2;
+
+  --color-glass-bg: rgba(11, 16, 32, 0.45);
+  --color-glass-border: rgba(255, 255, 255, 0.05);
+  --color-glass-hover-bg: rgba(16, 24, 39, 0.65);
+  --color-glass-hover-border: rgba(0, 229, 255, 0.2);
 
   background-color: var(--color-base);
   color: var(--color-text-primary);
@@ -101,16 +111,46 @@ body {
 
 /* Glassmorphism utility */
 .glass-panel {
-  background: rgba(11, 16, 32, 0.45);
+  background: var(--color-glass-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-glass-border);
 }
 
 .glass-panel-hover:hover {
-  background: rgba(16, 24, 39, 0.65);
-  border: 1px solid rgba(0, 229, 255, 0.2);
+  background: var(--color-glass-hover-bg);
+  border: 1px solid var(--color-glass-hover-border);
   box-shadow: 0 10px 30px -10px rgba(0, 229, 255, 0.15);
+}
+
+/* Light mode overrides for glass panels to make text crisp black */
+html:not(.dark) .glass-panel {
+  color: #000000;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+}
+html:not(.dark) .glass-panel p,
+html:not(.dark) .glass-panel span,
+html:not(.dark) .glass-panel h3,
+html:not(.dark) .glass-panel h4 {
+  color: #000000 !important;
+}
+html:not(.dark) .glass-panel .text-text-muted {
+  color: #000000 !important;
+}
+html:not(.dark) .glass-panel .text-text-muted\/80 {
+  color: #1A1A1A !important;
+}
+html:not(.dark) .glass-panel .text-text-muted\/60 {
+  color: #262626 !important;
+}
+html:not(.dark) .glass-panel .text-text-muted\/50 {
+  color: #333333 !important;
+}
+html:not(.dark) .glass-panel .text-text-muted\/40 {
+  color: #404040 !important;
+}
+html:not(.dark) .glass-panel .text-text-primary\/40 {
+  color: #404040 !important;
 }
 
 /* Keyframes for ambient lighting */
