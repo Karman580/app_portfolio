@@ -53,20 +53,20 @@ export default function BanksSection() {
   const [activeUseCase, setActiveUseCase] = useState(0);
 
   return (
-    <section id="banks" className="relative w-full bg-[#0B1020] py-24 border-b border-white/5">
-      <div className="absolute inset-0 bg-[#050816]/30"></div>
+    <section id="banks" className="relative w-full bg-base py-24 border-b border-border-main">
+      <div className="absolute inset-0 bg-base-muted/30 pointer-events-none"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         
         {/* Title */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="text-[#7C3AED] font-semibold text-xs tracking-wider uppercase mb-3 flex items-center justify-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#7C3AED]"></span> Enterprise Grade Protection
+          <div className="text-accent-violet font-semibold text-xs tracking-wider uppercase mb-3 flex items-center justify-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent-violet"></span> Enterprise Grade Protection
           </div>
-          <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+          <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-text-primary leading-tight">
             Built for Banks, NBFCs and Financial Institutions
           </h2>
-          <p className="mt-4 text-[#CBD5E1] text-lg font-light">
+          <p className="mt-4 text-text-muted text-lg font-light">
             Deploy AppShield AI directly into your mobile infrastructure to protect customer capital before financial loss occurs.
           </p>
         </div>
@@ -82,19 +82,19 @@ export default function BanksSection() {
                 onClick={() => setActiveUseCase(idx)}
                 className={`w-full py-4 px-6 rounded-xl text-left border transition-all duration-300 ${
                   activeUseCase === idx
-                    ? 'bg-gradient-to-r from-[#7C3AED]/10 to-[#2563EB]/10 border-[#7C3AED]/40 text-[#7C3AED]'
-                    : 'bg-white/5 border-white/5 text-[#CBD5E1] hover:bg-white/10'
+                    ? 'bg-gradient-to-r from-accent-violet/10 to-accent-blue/10 border-accent-violet/40 text-accent-violet'
+                    : 'bg-base-muted border-border-main text-text-muted hover:bg-base-subtle'
                 }`}
               >
-                <div className="text-sm font-bold text-white">{uc.team}</div>
+                <div className="text-sm font-bold text-text-primary">{uc.team}</div>
                 <div className="text-[10px] opacity-60 font-mono tracking-wider mt-0.5">{uc.metric}</div>
               </button>
             ))}
           </div>
 
           {/* Details Card (8 cols) */}
-          <div className="lg:col-span-8 bg-[#050816]/80 border border-white/5 rounded-3xl p-8 lg:p-12 min-h-[340px] flex flex-col justify-between relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-[#7C3AED]/5 rounded-full blur-3xl"></div>
+          <div className="lg:col-span-8 bg-base-muted/80 border border-border-main rounded-3xl p-8 lg:p-12 min-h-[340px] flex flex-col justify-between relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-accent-violet/5 rounded-full blur-3xl"></div>
             
             <AnimatePresence mode="wait">
               <motion.div
@@ -104,24 +104,24 @@ export default function BanksSection() {
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white/5 border border-white/10 text-xs font-mono text-[#7C3AED] mb-6">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-base-subtle border border-border-main text-xs font-mono text-accent-violet mb-6">
                   <Building2 className="w-3.5 h-3.5" /> Use Case Integration
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-4 tracking-tight leading-snug">
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-text-primary mb-4 tracking-tight leading-snug">
                   {useCases[activeUseCase].title}
                 </h3>
                 
-                <p className="text-[#CBD5E1] font-light leading-relaxed mb-8 text-base">
+                <p className="text-text-muted font-light leading-relaxed mb-8 text-base">
                   {useCases[activeUseCase].desc}
                 </p>
 
-                <div className="flex flex-col sm:flex-row sm:items-center gap-4 justify-between border-t border-white/5 pt-6">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4 justify-between border-t border-border-main pt-6">
                   <div>
-                    <span className="text-xs text-[#CBD5E1]/60 font-mono">Performance Metric:</span>
-                    <div className="text-white font-semibold mt-0.5">{useCases[activeUseCase].metric}</div>
+                    <span className="text-xs text-text-muted/60 font-mono">Performance Metric:</span>
+                    <div className="text-text-primary font-semibold mt-0.5">{useCases[activeUseCase].metric}</div>
                   </div>
-                  <a href="#contact" className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#00E5FF] hover:underline">
+                  <a href="#contact" className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent-cyan hover:underline">
                     Get Integration Specs <ArrowRight className="w-4 h-4" />
                   </a>
                 </div>
@@ -131,19 +131,19 @@ export default function BanksSection() {
         </div>
 
         {/* Benefits Grid */}
-        <div className="border-t border-white/5 pt-16">
-          <h3 className="text-center text-lg font-bold text-white mb-10 font-display">Core Business Benefits</h3>
+        <div className="border-t border-border-main pt-16">
+          <h3 className="text-center text-lg font-bold text-text-primary mb-10 font-display">Core Business Benefits</h3>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {benefits.map((b, idx) => {
               const Icon = b.icon;
               return (
-                <div key={idx} className="glass-panel p-6 rounded-2xl border-white/5 text-center flex flex-col items-center">
-                  <div className="p-3 rounded-xl bg-white/5 text-[#00E5FF] mb-4">
+                <div key={idx} className="glass-panel p-6 rounded-2xl border border-border-main text-center flex flex-col items-center">
+                  <div className="p-3 rounded-xl bg-base-muted text-accent-cyan mb-4">
                     <Icon className="w-5 h-5" />
                   </div>
-                  <div className="text-sm font-bold text-white mb-1 tracking-tight">{b.text}</div>
-                  <p className="text-[11px] text-[#CBD5E1]/60 leading-normal">{b.desc}</p>
+                  <div className="text-sm font-bold text-text-primary mb-1 tracking-tight">{b.text}</div>
+                  <p className="text-[11px] text-text-muted leading-normal">{b.desc}</p>
                 </div>
               );
             })}

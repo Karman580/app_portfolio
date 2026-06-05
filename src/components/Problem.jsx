@@ -51,29 +51,29 @@ export default function Problem() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <section id="problem" className="relative w-full bg-[#050816] py-24 border-b border-white/5 grid-bg">
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0B1020] via-transparent to-transparent pointer-events-none"></div>
+    <section id="problem" className="relative w-full bg-base py-24 border-b border-border-main grid-bg">
+      <div className="absolute inset-0 bg-gradient-to-t from-base-muted via-transparent to-transparent pointer-events-none"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
           <div className="lg:col-span-7">
-            <div className="text-[#00E5FF] font-semibold text-xs tracking-wider uppercase mb-3 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00E5FF]"></span> The Threat Landscape
+            <div className="text-accent-cyan font-semibold text-xs tracking-wider uppercase mb-3 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan"></span> The Threat Landscape
             </div>
-            <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+            <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-text-primary leading-tight">
               The Fraud Epidemic is Evolving <br />
               <span className="bg-gradient-to-r from-red-500 to-amber-500 bg-clip-text text-transparent">
                 Faster Than Traditional Security.
               </span>
             </h2>
           </div>
-          <div className="lg:col-span-5 flex items-center gap-4 bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
-            <div className="p-3.5 rounded-xl bg-red-500/10 text-red-400">
+          <div className="lg:col-span-5 flex items-center gap-4 bg-border-subtle/5 border border-border-main rounded-2xl p-6 backdrop-blur-md">
+            <div className="p-3.5 rounded-xl bg-red-500/10 text-accent-danger">
               <TrendingUp className="w-6 h-6" />
             </div>
             <div>
-              <div className="text-2xl font-bold text-white">70% of Cyber Crimes</div>
-              <div className="text-sm text-[#CBD5E1]">in India are direct financial frauds targeting retail users.</div>
+              <div className="text-2xl font-bold text-text-primary">70% of Cyber Crimes</div>
+              <div className="text-sm text-text-muted">in India are direct financial frauds targeting retail users.</div>
             </div>
           </div>
         </div>
@@ -105,29 +105,29 @@ export default function Problem() {
                 >
                   {/* Decorative Pulse Glow */}
                   {isHovered && (
-                    <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-[#00E5FF] to-[#7C3AED] opacity-15 blur-lg transition-opacity duration-300"></div>
+                    <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-accent-cyan to-accent-violet opacity-15 blur-lg transition-opacity duration-300"></div>
                   )}
 
                   <div className="relative z-10">
                     <div className="flex items-center justify-between mb-6">
-                      <div className={`p-3 rounded-xl bg-white/5 ${scam.color.split(' ')[2]}`}>
+                      <div className={`p-3 rounded-xl bg-border-main ${scam.color.split(' ')[2]}`}>
                         <Icon className="w-6 h-6" />
                       </div>
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-white/40">
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-text-muted opacity-50">
                         Vector #{idx + 1}
                       </span>
                     </div>
 
-                    <h3 className="text-xl font-bold text-white mb-3 tracking-tight">
+                    <h3 className="text-xl font-bold text-text-primary mb-3 tracking-tight">
                       {scam.title}
                     </h3>
                     
-                    <p className="text-sm text-[#CBD5E1]/80 leading-relaxed mb-6 font-light">
+                    <p className="text-sm text-text-muted leading-relaxed mb-6 font-light">
                       {scam.desc}
                     </p>
 
-                    <div className="pt-4 border-t border-white/5 flex items-center justify-between text-xs">
-                      <span className="text-[#CBD5E1]/60">India Stat:</span>
+                    <div className="pt-4 border-t border-border-main flex items-center justify-between text-xs">
+                      <span className="text-text-muted">India Stat:</span>
                       <span className="font-semibold">{scam.stat}</span>
                     </div>
                   </div>

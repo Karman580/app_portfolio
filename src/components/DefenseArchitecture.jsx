@@ -49,24 +49,24 @@ export default function DefenseArchitecture() {
   const [activeLayer, setActiveLayer] = useState(0);
 
   return (
-    <section id="architecture" className="relative w-full bg-[#050816] py-24 border-b border-white/5 overflow-hidden">
+    <section id="architecture" className="relative w-full bg-base py-24 border-b border-border-main overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Title */}
         <div className="max-w-3xl mb-16">
-          <div className="text-[#00E5FF] font-semibold text-xs tracking-wider uppercase mb-3 flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00E5FF]"></span> The Core Infrastructure
+          <div className="text-accent-cyan font-semibold text-xs tracking-wider uppercase mb-3 flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan"></span> The Core Infrastructure
           </div>
-          <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+          <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-text-primary leading-tight">
             5-Layer Defense Architecture
           </h2>
-          <p className="mt-4 text-[#CBD5E1] text-lg font-light">
+          <p className="mt-4 text-text-muted text-lg font-light">
             An active, multi-stage shield that works in tandem to intercept threat vectors from initial contact to the final transaction attempt.
           </p>
         </div>
 
         {/* Tab Headers */}
-        <div className="flex overflow-x-auto gap-2 pb-6 mb-12 border-b border-white/5 scrollbar-none">
+        <div className="flex overflow-x-auto gap-2 pb-6 mb-12 border-b border-border-main scrollbar-none">
           {layers.map((layer, idx) => {
             const Icon = layer.icon;
             const isActive = activeLayer === idx;
@@ -76,11 +76,11 @@ export default function DefenseArchitecture() {
                 onClick={() => setActiveLayer(idx)}
                 className={`flex items-center gap-3 px-6 py-4 rounded-xl text-left shrink-0 transition-all duration-300 ${
                   isActive 
-                    ? 'bg-gradient-to-r from-[#00E5FF]/10 to-[#2563EB]/10 border border-[#00E5FF]/30 text-[#00E5FF]' 
-                    : 'bg-white/5 border border-white/5 text-[#CBD5E1] hover:bg-white/10'
+                    ? 'bg-gradient-to-r from-accent-cyan/10 to-accent-blue/10 border border-accent-cyan/30 text-accent-cyan' 
+                    : 'bg-base-muted border border-border-main text-text-muted hover:bg-base-subtle'
                 }`}
               >
-                <Icon className={`w-5 h-5 ${isActive ? 'text-[#00E5FF]' : 'text-white/60'}`} />
+                <Icon className={`w-5 h-5 ${isActive ? 'text-accent-cyan' : 'text-text-muted/60'}`} />
                 <div>
                   <div className="text-[10px] uppercase font-mono tracking-wider opacity-60">Layer 0{layer.id}</div>
                   <div className="text-sm font-bold">{layer.title.split(': ')[1]}</div>
@@ -93,7 +93,7 @@ export default function DefenseArchitecture() {
         {/* Main Layer Content Slider */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-[480px]">
           {/* Visual Showcase (7 cols) */}
-          <div className="lg:col-span-7 flex justify-center items-center h-[380px] bg-gradient-to-br from-[#0B1020] to-[#101827] border border-white/5 rounded-3xl p-8 relative overflow-hidden">
+          <div className="lg:col-span-7 flex justify-center items-center h-[380px] bg-gradient-to-br from-base-muted to-base-subtle border border-border-main rounded-3xl p-8 relative overflow-hidden">
             <div className="absolute inset-0 grid-bg opacity-30"></div>
             
             <AnimatePresence mode="wait">
@@ -123,16 +123,16 @@ export default function DefenseArchitecture() {
                       </motion.div>
 
                       {/* Line of action */}
-                      <div className="w-16 h-[2px] bg-dashed border-t-2 border-dashed border-white/20"></div>
+                      <div className="w-16 h-[2px] bg-dashed border-t-2 border-dashed border-border-main"></div>
 
                       {/* Shield Center Guard */}
-                      <div className="w-32 h-32 rounded-full border border-[#00E5FF]/30 bg-[#00E5FF]/10 flex items-center justify-center relative shadow-[0_0_30px_rgba(0,229,255,0.2)]">
-                        <Shield className="w-10 h-10 text-[#00E5FF]" />
+                      <div className="w-32 h-32 rounded-full border border-accent-cyan/30 bg-accent-cyan/10 flex items-center justify-center relative shadow-[0_0_30px_rgba(2,132,199,0.2)]">
+                        <Shield className="w-10 h-10 text-accent-cyan" />
                         {/* Pulse Ring */}
                         <motion.div 
                           animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0, 0.3] }}
                           transition={{ duration: 2, repeat: Infinity }}
-                          className="absolute inset-0 rounded-full border border-[#00E5FF]/60"
+                          className="absolute inset-0 rounded-full border border-accent-cyan/60"
                         />
                       </div>
                     </div>
@@ -140,9 +140,9 @@ export default function DefenseArchitecture() {
                     <motion.div 
                       animate={{ 
                         opacity: [1, 1, 0, 1],
-                        borderColor: ['#00E5FF', '#00E5FF', '#FF3366', '#00E5FF'] 
+                        borderColor: ['var(--color-accent-cyan)', 'var(--color-accent-cyan)', 'var(--color-accent-danger)', 'var(--color-accent-cyan)'] 
                       }}
-                      className="mt-6 px-4 py-1.5 rounded-lg border border-[#00E5FF] bg-black/50 text-[#00E5FF] font-mono text-[10px] uppercase tracking-wider"
+                      className="mt-6 px-4 py-1.5 rounded-lg border border-accent-cyan bg-base-muted/85 text-accent-cyan font-mono text-[10px] uppercase tracking-wider"
                     >
                       Certificate Validated: Threat Neutralized
                     </motion.div>
@@ -154,15 +154,15 @@ export default function DefenseArchitecture() {
                   <div className="flex flex-col items-center w-full max-w-md">
                     <div className="flex justify-between items-center w-full relative">
                       {/* User Node */}
-                      <div className="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex flex-col items-center justify-center relative">
-                        <Smartphone className="w-6 h-6 text-white/80" />
+                      <div className="w-20 h-20 rounded-2xl bg-base-muted border border-border-main flex flex-col items-center justify-center relative">
+                        <Smartphone className="w-6 h-6 text-text-primary/80" />
                         <span className="text-[9px] font-mono mt-1">Your Device</span>
                         {/* Outgoing Alert lines */}
                         <svg className="absolute top-1/2 left-full w-24 h-12 -translate-y-1/2 overflow-visible pointer-events-none">
                           <motion.path 
                             d="M 0 6 Q 50 -20 100 -20 M 0 6 Q 50 32 100 32" 
                             fill="none" 
-                            stroke="#FF3366" 
+                            stroke="var(--color-accent-danger)" 
                             strokeWidth="2" 
                             strokeDasharray="4"
                             animate={{ strokeDashoffset: [-20, 0] }}
@@ -176,15 +176,15 @@ export default function DefenseArchitecture() {
                         <div className="w-28 py-2 px-3 rounded-xl bg-red-950/40 border border-red-500/30 flex items-center gap-2">
                           <Users className="w-4 h-4 text-red-400 shrink-0" />
                           <div className="text-left">
-                            <div className="text-[9px] font-bold text-white">Spouse (Alerted)</div>
+                            <div className="text-[9px] font-bold text-text-primary">Spouse (Alerted)</div>
                             <div className="text-[8px] text-red-400 font-mono">High Risk scam call</div>
                           </div>
                         </div>
-                        <div className="w-28 py-2 px-3 rounded-xl bg-[#00E5FF]/10 border border-[#00E5FF]/20 flex items-center gap-2">
-                          <Users className="w-4 h-4 text-[#00E5FF] shrink-0" />
+                        <div className="w-28 py-2 px-3 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 flex items-center gap-2">
+                          <Users className="w-4 h-4 text-accent-cyan shrink-0" />
                           <div className="text-left">
-                            <div className="text-[9px] font-bold text-white">Brother</div>
-                            <div className="text-[8px] text-emerald-400 font-mono">Awaiting Sync</div>
+                            <div className="text-[9px] font-bold text-text-primary">Brother</div>
+                            <div className="text-[8px] text-success font-mono">Awaiting Sync</div>
                           </div>
                         </div>
                       </div>
@@ -203,7 +203,7 @@ export default function DefenseArchitecture() {
                         return (
                           <div
                             key={i}
-                            className={`w-2.5 rounded-full ${isRed ? 'bg-[#FF3366]' : 'bg-[#00E5FF]'}`}
+                            className={`w-2.5 rounded-full ${isRed ? 'bg-accent-danger' : 'bg-accent-cyan'}`}
                             style={{
                               height: '15px',
                               animation: `waveBar 1.${(i * 3 + 2) % 10}s ease-in-out ${i * 0.06}s infinite alternate`,
@@ -215,12 +215,12 @@ export default function DefenseArchitecture() {
                     </div>
 
                     {/* Detected Scam Words Overlay */}
-                    <div className="w-full max-w-md py-4 px-6 rounded-2xl bg-[#050816]/80 border border-red-500/20 text-center font-mono">
-                      <div className="text-[10px] text-red-400 uppercase tracking-widest mb-1 flex items-center justify-center gap-1">
+                    <div className="w-full max-w-md py-4 px-6 rounded-2xl bg-base/80 border border-accent-danger/20 text-center font-mono">
+                      <div className="text-[10px] text-accent-danger uppercase tracking-widest mb-1 flex items-center justify-center gap-1">
                         <AlertTriangle className="w-3.5 h-3.5" /> Threat Flagged
                       </div>
-                      <p className="text-xs text-white">
-                        "Your bank account is under <span className="bg-red-500/20 text-red-400 font-bold px-1 rounded border border-red-500/30">digital arrest</span> by CBI. Do not disconnect."
+                      <p className="text-xs text-text-primary">
+                        "Your bank account is under <span className="bg-accent-danger/20 text-accent-danger font-bold px-1 rounded border border-accent-danger/30">digital arrest</span> by CBI. Do not disconnect."
                       </p>
                     </div>
                   </div>
@@ -234,19 +234,19 @@ export default function DefenseArchitecture() {
                       <motion.div 
                         animate={{ scale: [1, 2.2, 1], opacity: [0.5, 0, 0.5] }}
                         transition={{ duration: 1.8, repeat: Infinity }}
-                        className="absolute w-28 h-28 rounded-full border border-red-500"
+                        className="absolute w-28 h-28 rounded-full border border-accent-danger"
                       />
-                      <div className="w-24 h-24 rounded-full bg-red-950 border border-red-500 flex flex-col items-center justify-center relative shadow-[0_0_30px_rgba(239,68,68,0.4)]">
+                      <div className="w-24 h-24 rounded-full bg-red-950 border border-accent-danger flex flex-col items-center justify-center relative shadow-[0_0_30px_rgba(239,68,68,0.4)]">
                         <Mic className="w-8 h-8 text-red-400 animate-pulse" />
                         <span className="text-[9px] font-mono text-red-400 mt-1 uppercase tracking-wider font-bold">SOS ACTIVE</span>
                       </div>
                     </div>
                     
                     <div className="mt-8 text-center">
-                      <div className="text-white text-sm font-semibold mb-1">
-                        Safe Word: <span className="text-red-400">"Emergency Verification Code"</span>
+                      <div className="text-text-primary text-sm font-semibold mb-1">
+                        Safe Word: <span className="text-accent-danger">"Emergency Verification Code"</span>
                       </div>
-                      <p className="text-xs text-[#CBD5E1]/60">Triggers silently during a call when spoken normally.</p>
+                      <p className="text-xs text-text-muted">Triggers silently during a call when spoken normally.</p>
                     </div>
                   </div>
                 )}
@@ -254,29 +254,29 @@ export default function DefenseArchitecture() {
                 {/* Layer 5: After-call transaction lockdown */}
                 {layers[activeLayer].visualType === 'payment_lock' && (
                   <div className="flex flex-col items-center">
-                    <div className="w-48 bg-[#050816] border border-white/10 rounded-2xl p-5 shadow-2xl relative">
+                    <div className="w-48 bg-base border border-border-main rounded-2xl p-5 shadow-2xl relative">
                       {/* Top status */}
                       <div className="flex justify-between items-center mb-4">
-                        <span className="text-[8px] font-mono text-white/50">UPI PAYMENTS</span>
-                        <span className="text-[8px] px-1.5 py-0.5 rounded bg-red-500/20 text-red-400 font-mono font-bold uppercase">LOCKED</span>
+                        <span className="text-[8px] font-mono text-text-muted">UPI PAYMENTS</span>
+                        <span className="text-[8px] px-1.5 py-0.5 rounded bg-accent-danger/20 text-accent-danger font-mono font-bold uppercase">LOCKED</span>
                       </div>
                       
                       {/* Input keypad preview */}
                       <div className="space-y-3">
-                        <div className="h-10 rounded-lg bg-white/5 border border-white/5 flex items-center justify-between px-3">
-                          <span className="text-[9px] text-[#CBD5E1]/60">Enter Amount</span>
-                          <span className="text-[10px] font-bold text-white/40">₹ 50,000</span>
+                        <div className="h-10 rounded-lg bg-base-muted border border-border-subtle flex items-center justify-between px-3">
+                          <span className="text-[9px] text-text-muted">Enter Amount</span>
+                          <span className="text-[10px] font-bold text-text-primary/40">₹ 50,000</span>
                         </div>
-                        <div className="py-2.5 rounded-lg bg-red-500/20 border border-red-500/30 flex items-center justify-center gap-1.5 text-red-400 text-xs font-semibold">
+                        <div className="py-2.5 rounded-lg bg-accent-danger/20 border border-accent-danger/30 flex items-center justify-center gap-1.5 text-accent-danger text-xs font-semibold">
                           <Lock className="w-3.5 h-3.5" /> Temporarily Locked
                         </div>
                       </div>
 
                       {/* Cool Clock Overlay */}
-                      <div className="absolute inset-0 bg-[#050816]/90 rounded-2xl flex flex-col items-center justify-center p-4 border border-red-500/30">
-                        <Lock className="w-8 h-8 text-red-400 mb-2" />
-                        <div className="text-xs font-bold text-white">Vulnerability Lock Enabled</div>
-                        <div className="text-[9px] text-[#CBD5E1]/60 text-center mt-1">Unlocked in 14m 52s (After-Call Cooloff)</div>
+                      <div className="absolute inset-0 bg-base/90 rounded-2xl flex flex-col items-center justify-center p-4 border border-accent-danger/30">
+                        <Lock className="w-8 h-8 text-accent-danger mb-2" />
+                        <div className="text-xs font-bold text-text-primary">Vulnerability Lock Enabled</div>
+                        <div className="text-[9px] text-text-muted text-center mt-1">Unlocked in 14m 52s (After-Call Cooloff)</div>
                       </div>
                     </div>
                   </div>
@@ -295,26 +295,26 @@ export default function DefenseArchitecture() {
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.4 }}
               >
-                <span className="text-sm font-mono text-[#00E5FF] uppercase tracking-wider">
+                <span className="text-sm font-mono text-accent-cyan uppercase tracking-wider">
                   System Phase 0{layers[activeLayer].id}
                 </span>
                 
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-2 mb-4 tracking-tight leading-tight">
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-text-primary mt-2 mb-4 tracking-tight leading-tight">
                   {layers[activeLayer].title}
                 </h3>
                 
-                <div className="text-xs px-3 py-1 rounded bg-white/5 border border-white/10 text-[#CBD5E1] inline-block mb-6 font-mono font-semibold">
+                <div className="text-xs px-3 py-1 rounded bg-base-muted border border-border-main text-text-muted inline-block mb-6 font-mono font-semibold">
                   {layers[activeLayer].subtitle}
                 </div>
 
-                <p className="text-[#CBD5E1] leading-relaxed mb-8 font-light">
+                <p className="text-text-muted leading-relaxed mb-8 font-light">
                   {layers[activeLayer].desc}
                 </p>
 
                 <div className="flex gap-4">
                   <button 
                     onClick={() => setActiveLayer((activeLayer + 1) % layers.length)}
-                    className="flex items-center gap-2 text-sm font-semibold text-white hover:text-[#00E5FF] transition-colors"
+                    className="flex items-center gap-2 text-sm font-semibold text-text-primary hover:text-accent-cyan transition-colors"
                   >
                     Next Layer <ArrowRight className="w-4 h-4" />
                   </button>

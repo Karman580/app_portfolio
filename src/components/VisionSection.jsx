@@ -63,7 +63,9 @@ export default function VisionSection() {
       const hw = w / 2;
       const hh = h / 2;
 
-      ctx.fillStyle = '#050816';
+      const isDark = document.documentElement.classList.contains('dark');
+
+      ctx.fillStyle = isDark ? '#050816' : '#FFFFFF';
       ctx.fillRect(0, 0, w, h);
 
       angleY += 0.2;
@@ -100,7 +102,7 @@ export default function VisionSection() {
           const opacity = 0.12 * (1 - (rz[a] + radius) / (2 * radius));
           if (opacity < 0.01) continue;
 
-          ctx.strokeStyle = `rgba(0,229,255,${opacity})`;
+          ctx.strokeStyle = isDark ? `rgba(0,229,255,${opacity})` : `rgba(2,132,199,${opacity})`;
 
           // Connect to right neighbor (wrap around longitude)
           const b = i * numLongitudes + ((j + 1) % numLongitudes);
@@ -131,7 +133,7 @@ export default function VisionSection() {
         ctx.moveTo(px[i] + 1.2, py[i]);
         ctx.arc(px[i], py[i], 1.2, 0, Math.PI * 2);
       }
-      ctx.fillStyle = '#00E5FF';
+      ctx.fillStyle = isDark ? '#00E5FF' : '#0284C7';
       ctx.fill();
 
       // Threat dots
@@ -141,7 +143,7 @@ export default function VisionSection() {
         ctx.moveTo(px[i] + 2, py[i]);
         ctx.arc(px[i], py[i], 2, 0, Math.PI * 2);
       }
-      ctx.fillStyle = '#FF3366';
+      ctx.fillStyle = isDark ? '#FF3366' : '#EF4444';
       ctx.fill();
 
       animationFrameId = requestAnimationFrame(render);
@@ -156,35 +158,35 @@ export default function VisionSection() {
   }, []);
 
   return (
-    <section className="relative w-full bg-[#050816] py-24 border-b border-white/5 grid-bg">
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0B1020] via-transparent to-transparent pointer-events-none"></div>
+    <section className="relative w-full bg-base py-24 border-b border-border-main grid-bg">
+      <div className="absolute inset-0 bg-gradient-to-t from-base-muted via-transparent to-transparent pointer-events-none"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Vision Canvas Globe (5 cols) */}
-          <div className="lg:col-span-5 h-[380px] bg-gradient-to-br from-[#0B1020] to-[#101827] border border-white/5 rounded-3xl relative overflow-hidden flex items-center justify-center">
+          <div className="lg:col-span-5 h-[380px] bg-gradient-to-br from-base-muted to-base-subtle border border-border-main rounded-3xl relative overflow-hidden flex items-center justify-center">
             <canvas ref={canvasRef} className="w-full h-full object-cover" />
-            <div className="absolute bottom-6 left-6 px-3 py-1 rounded-md bg-white/5 border border-white/10 text-[10px] font-mono text-[#00E5FF] tracking-wider uppercase">
+            <div className="absolute bottom-6 left-6 px-3 py-1 rounded-md bg-base-muted/50 border border-border-main text-[10px] font-mono text-accent-cyan tracking-wider uppercase">
               Global Cyber Node Status: Syncing
             </div>
           </div>
 
           {/* Vision statement (7 cols) */}
           <div className="lg:col-span-7 flex flex-col justify-center">
-            <div className="text-[#00E5FF] font-semibold text-xs tracking-wider uppercase mb-3 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00E5FF]"></span> Next-Gen Protection Infrastructure
+            <div className="text-accent-cyan font-semibold text-xs tracking-wider uppercase mb-3 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan"></span> Next-Gen Protection Infrastructure
             </div>
             
-            <h2 className="font-display text-4xl sm:text-6xl font-extrabold text-white leading-tight mb-6 tracking-tight">
+            <h2 className="font-display text-4xl sm:text-6xl font-extrabold text-text-primary leading-tight mb-6 tracking-tight">
               Building India's Digital Fraud Shield.
             </h2>
 
-            <p className="text-[#CBD5E1] text-lg font-light leading-relaxed mb-6">
+            <p className="text-text-muted text-lg font-light leading-relaxed mb-6">
               AppShield AI is creating the next generation of preventive cybersecurity infrastructure for India. We are empowering citizens, commercial banks, regulators, and government agencies to stop financial scams during execution before funds ever leave the account.
             </p>
 
-            <p className="text-[#CBD5E1]/80 text-sm font-light leading-relaxed">
+            <p className="text-text-muted/80 text-sm font-light leading-relaxed">
               By deploying locally, respecting user privacy, and building automated links with authorized fraud response units, we are changing the paradigm from recovery to defense.
             </p>
           </div>
